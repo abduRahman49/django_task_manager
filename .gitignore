@@ -1,2 +1,8 @@
 env/
 .env
+
+task_manager/__pycache__/
+core/__pycache__/
+
+core/migrations/__pycache__/
+tasks/migrations/__pycache__/
