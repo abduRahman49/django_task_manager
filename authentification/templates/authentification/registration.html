@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Création de projet</title>
+    <title>Création de compte</title>
 </head>
 <body>
     <div class="container">
-        <form method="post" action="{% url 'tasks:create' %}">
-            {% csrf_token %} {# jeton de sécurité #}
+        <form method="post" action="#">
+            {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Créer le projet</button>
+            <button type="submit">Créer compte</button>
         </form>
     </div>
-    
 </body>
 </html>
