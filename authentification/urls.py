@@ -5,5 +5,5 @@ app_name = "authentification" # espace de noms
 
 urlpatterns = [
     path('register/', RegistrationView.as_view(), name="register"),
-    # path('projects/list', ProjectListView.as_view(), name="list"),
+    # path('connexion/', ConnexionView.as_view(), name="connexion"),
 ]

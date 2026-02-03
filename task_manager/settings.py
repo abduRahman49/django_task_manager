@@ -82,13 +82,12 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        #'NAME': os.getenv('DB_NAME'), # Nom base de données
-        #'USER': os.getenv('DB_USER'), # Nom de l'utilisateur
-        #'PASSWORD': os.getenv('DB_PASSWORD'), # Mot de passe de l'utilisateur
-        #'HOST': os.getenv('DB_HOST', 'localhost'), # Serveur de la base de données
-        #'PORT': os.getenv('DB_PORT', '5432'), # Port de postgres
+        'ENGINE': 'django.db.backends.postgresql', # Utilisation de PostgreSQL
+        'NAME': os.getenv('DB_NAME'), # Nom base de données
+        'USER': os.getenv('DB_USER'), # Nom de l'utilisateur
+        'PASSWORD': os.getenv('DB_PASSWORD'), # Mot de passe de l'utilisateur
+        'HOST': os.getenv('DB_HOST', 'localhost'), # Serveur de la base de données
+        'PORT': os.getenv('DB_PORT', '5432'), # Port de postgres
     }
 }
 

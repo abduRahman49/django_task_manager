@@ -22,3 +22,7 @@ class ProjectView(View):
     def get(self, request):
         form = ProjectForm()
         return render(request, 'tasks/project_form.html', {'form': form})
+
+
+def home_view(request):
+    return render(request, "tasks/index.html")
