@@ -5,7 +5,7 @@ from .forms import ProjectForm
 from .services import ProjectService
 
 
-# Create your views here.
+# CBV (Class Based View)
 class ProjectView(View):
 
     def post(self, request):
@@ -23,6 +23,11 @@ class ProjectView(View):
         form = ProjectForm()
         return render(request, 'tasks/project_form.html', {'form': form})
 
-
+# FBV (Function Based View)
 def home_view(request):
     return render(request, "tasks/index.html")
+
+
+def project_list_view(request):
+    projets = ProjectService.get_user_projects(request.user)
+    return render(request, "tasks/project_list.html", {"projets": projets})
