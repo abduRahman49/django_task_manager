@@ -9,7 +9,7 @@ class AuthenticationService:
         if CustomUser.objects.filter(username=username).exists():
             raise UserAlreadyExists("L'utilisateur avec ce nom d'utilisateur existe déjà")
 
-        user = CustomUser(username=username, email=email, password=password)
+        user = CustomUser.objects.create_user(username=username, email=email, password=password)
         if name is not None:
             user.first_name = name
         

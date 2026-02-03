@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.contrib import messages
 from django.views import View
 from .forms import ProjectForm
 from .services import ProjectService
@@ -15,8 +15,8 @@ class ProjectView(View):
             data = form.cleaned_data
             owner = request.user
             project = ProjectService.create_project(data.get("title"), owner)
-            return HttpResponse(f"Le projet {project.title} a bien été créé")
-            ## return redirect("tasks:list") # redirige vers une autre url après création du projet
+            messages.add_message(request, messages.SUCCESS, f"Le projet {project.title} a bien été créé")
+            return redirect("tasks:create")
 
 
     def get(self, request):

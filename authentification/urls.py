@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import RegistrationView
+from .views import RegistrationView, ConnexionView
 
 app_name = "authentification" # espace de noms
 
 urlpatterns = [
     path('register/', RegistrationView.as_view(), name="register"),
-    # path('connexion/', ConnexionView.as_view(), name="connexion"),
+    path('connexion/', ConnexionView.as_view(), name="connexion"),
 ]

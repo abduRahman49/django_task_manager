@@ -30,6 +30,7 @@ class RegistrationView(View):
                 form.add_error(None, e.message)
                 return render(request, "authentification/registration.html", {"form": form})
             
+            messages.add_message(request, messages.INFO, "Connexion réussie")
             return redirect("authentification:connexion")
 
         return render(request, "authentification/registration.html", {"form": form})

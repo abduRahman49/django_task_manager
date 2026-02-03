@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3>Accueil</h3>
+    <p>Bienvenue sur l'application de gestion de taches</p>
+
+    <a href="{% url 'tasks:create' %}">Créer un nouveau projet</a>
+
+{% endblock %}

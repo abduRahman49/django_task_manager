@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Création de projet</title>
-</head>
-<body>
-    <div class="container">
-        <form method="post" action="{% url 'tasks:create' %}">
-            {% csrf_token %} {# jeton de sécurité #}
-            {{ form.as_p }}
-            <button type="submit">Créer le projet</button>
-        </form>
-    </div>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" action="{% url 'tasks:create' %}">
+        {% csrf_token %} {# jeton de sécurité #}
+        {{ form.as_p }}
+        <button type="submit">Créer le projet</button>
+    </form>
+{% endblock %}
