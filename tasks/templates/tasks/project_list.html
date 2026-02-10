@@ -3,7 +3,7 @@
 {% block content %}
     <ul>
         {% for projet in projets %}
-            <li>{{ projet.title }} <a href="{% url 'tasks:delete' projet.id %}">Supprimer</a></li>
+            <li>{{ projet.title }} <a href="{% url 'tasks:detail' projet.id %}">Consulter détails</a> <a href="{% url 'tasks:delete' projet.id %}">Supprimer</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

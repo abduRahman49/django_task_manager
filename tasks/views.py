@@ -43,3 +43,8 @@ def delete_project_view(request, project_id):
             
     messages.add_message(request, messages.SUCCESS, "Le projet a été supprimé avec succès")
     return redirect("tasks:list")
+
+def project_detail_view(request, project_id):
+    user = request.user
+    project = ProjectService.get_project(project_id, user)
+    return render(request, "tasks/project_detail.html", {"project": project})

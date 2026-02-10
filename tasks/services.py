@@ -19,3 +19,11 @@ class ProjectService:
             raise PermissionDenied("Vous n'êtes pas autorisé à supprimer ce projet")
 
         project.delete()
+
+    @staticmethod
+    def get_project(project_id, user):
+        project = Project.objects.get(id=project_id)
+        if project.owner != user:
+            raise PermissionDenied("Vous n'êtes pas autorisé à supprimer ce projet")
+
+        return project
