@@ -1,3 +1,4 @@
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import View
@@ -31,3 +32,14 @@ def home_view(request):
 def project_list_view(request):
     projets = ProjectService.get_user_projects(request.user)
     return render(request, "tasks/project_list.html", {"projets": projets})
+
+def delete_project_view(request, project_id):
+    user = request.user
+    try:
+        ProjectService.delete_project(project_id, user)
+    except PermissionDenied as e:
+        messages.add_message(request, messages.ERROR, str(e))
+        return redirect("tasks:list")
+            
+    messages.add_message(request, messages.SUCCESS, "Le projet a été supprimé avec succès")
+    return redirect("tasks:list")

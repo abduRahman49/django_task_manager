@@ -17,5 +17,5 @@ class ProjectService:
         project = Project.objects.get(id=project_id)
         if project.owner != user:
             raise PermissionDenied("Vous n'êtes pas autorisé à supprimer ce projet")
-        
+
         project.delete()
